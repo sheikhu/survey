@@ -1,73 +1,13 @@
-{% extends "::base.html.twig" %}
-{% form_theme form _self %}
-{% block _survey_questions_entry_name_widget %}
-    {{ block('form_widget') }}
-    <a class="delete" data-delete="{{ form.vars.id }}" href="#">Delete</a>
-
-{% endblock %}
-{% block _survey_questions_entry_row %}
-    {% set attr = attr|merge({'class': (attr.class|default('') ~ ' row-collection')|trim}) %}
-    {{ form_widget(form, {attr: attr}) }}
-{% endblock %}
-
-
-{% block collection_row %}
-    {{ block('form_row') }}
-    {% if allow_add %}
-        <a class="add" href="#">Add</a>
-    {% endif %}
-{% endblock %}
-
-{% block title %}AppBundle:Survey:index{% endblock %}
+{% extends "@App/Survey/layout.html.twig" %}
 
 {% block body %}
 <div class="row">
     <div class="col-lg-6">
-        {{ form_start(form) }}
 
-        <fieldset>
-            <legend>New survey</legend>
-            {{ form_row(form.name) }}
-            {{ form_row(form.questions) }}
-
-
-            <div class="form-group">
-                <div class="col-lg-10 col-lg-offset-2">
-                    <input type="submit"  class="btn btn-success"/>
-                </div>
-            </div>
-        </fieldset>
-
-
-        {{ form_end(form) }}
-
+        {% include "@App/Survey/_form.html.twig" %}
 
     </div>
-    </div>
+</div>
 
 
-{% endblock %}
-
-{% block javascripts %}
-{{ parent() }}
-    <script>
-        function add() {
-            var collectionHolder = $('#survey_questions');
-            var prototype = collectionHolder.attr('data-prototype');
-            alert(collectionHolder.children().length);
-            form = prototype.replace(/__name__/g, collectionHolder.children().length);
-            collectionHolder.append($(form).fadeIn());
-        }
-
-        $('a.delete').on('click', function(e){
-            e.preventDefault();
-            alert('ok');
-            $(this).parents('.row-collection').remove();
-            $(this).remove();
-        })
-        $('a.add').on('click', function(event){
-            event.preventDefault();
-            add();
-        });
-    </script>
 {% endblock %}
