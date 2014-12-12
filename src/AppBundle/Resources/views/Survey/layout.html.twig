@@ -51,7 +51,7 @@
             event.preventDefault();
             var form = add();
 
-            alert($(form).find('a.delete').length);
+            //alert($(form).find('a.delete').length);
             $(form).find('.delete').on('click', function(e){
                 e.preventDefault();
                 $(this).parents('.row-collection').remove();

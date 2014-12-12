@@ -16,6 +16,15 @@ class QuestionType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('type', 'choice', [
+                'mapped'    =>  false,
+                'label' =>  'Type de réponse',
+            'choices'   =>  [
+                'text' => 'Texte',
+                'checkbox'  =>  'Choix multiple',
+                'radio' => 'Choix unique'
+            ]
+            ])
         ;
     }
     
