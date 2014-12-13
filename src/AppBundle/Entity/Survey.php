@@ -34,7 +34,7 @@ class Survey
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Question", mappedBy="survey", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Question", mappedBy="survey", cascade={"persist"}, orphanRemoval=true)
      */
     private $questions;
 

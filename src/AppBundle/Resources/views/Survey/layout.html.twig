@@ -1,9 +1,8 @@
 {% extends "::base.html.twig" %}
 {% form_theme form _self %}
-{% block _survey_questions_entry_name_widget %}
-    {{ block('form_widget') }}
-    <a class="delete" data-delete="{{ form.vars.id }}" href="#">Delete</a>
-
+{% block _survey_questions_entry_type_widget %}
+    {{ form_widget(form) }}
+    <a class="delete btn btn-sm" data-delete="{{ form.vars.id }}" href="#">Delete</a>
 {% endblock %}
 {% block _survey_questions_entry_row %}
     {% set attr = attr|merge({'class': (attr.class|default('') ~ ' row-collection')|trim}) %}
@@ -52,12 +51,13 @@
             var form = add();
 
             //alert($(form).find('a.delete').length);
-            $(form).find('.delete').on('click', function(e){
-                e.preventDefault();
-                $(this).parents('.row-collection').remove();
-                $(this).remove();
-            });
 
+        });
+
+        $('body').on('click', '.delete',function(e){
+            e.preventDefault();
+            $(this).parents('.row-collection').remove();
+            $(this).remove();
         });
     </script>
 {% endblock %}
