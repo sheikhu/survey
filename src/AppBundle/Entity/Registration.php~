@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Question
+ * Registration
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class Question
+class Registration
 {
     /**
      * @var integer
@@ -24,15 +24,15 @@ class Question
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255)
      */
-    private $name;
+    private $email;
 
     /**
-     * @var Survey
-     * @ORM\ManyToOne(targetEntity="Survey", inversedBy="questions")
+     * @var Event
+     * @ORM\ManyToOne(targetEntity="Event", inversedBy="registations")
      */
-    private $survey;
+    private $event;
 
     /**
      * Get id
@@ -45,25 +45,25 @@ class Question
     }
 
     /**
-     * Set name
+     * Set email
      *
-     * @param string $name
-     * @return Question
+     * @param string $email
+     * @return Registration
      */
-    public function setName($name)
+    public function setEmail($email)
     {
-        $this->name = $name;
+        $this->email = $email;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get email
      *
      * @return string 
      */
-    public function getName()
+    public function getEmail()
     {
-        return $this->name;
+        return $this->email;
     }
 }
