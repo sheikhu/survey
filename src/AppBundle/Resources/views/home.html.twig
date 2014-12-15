@@ -1,0 +1,19 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            {{ form_start(form) }}
+
+            {{ form_widget(form) }}
+
+            <div class="form-group">
+                <input class="btn btn-success" type="submit"/>
+            </div>
+            {{ form_end(form, {'render_rest': false}) }}
+        </div>
+    </div>
+
+{% endblock %}
+
