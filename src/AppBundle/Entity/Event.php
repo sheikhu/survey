@@ -164,6 +164,7 @@ class Event
     public function __construct()
     {
         $this->registations = new ArrayCollection();
+        $this->startDate = $this->endDate = new \Datetime();
     }
 
     /**
