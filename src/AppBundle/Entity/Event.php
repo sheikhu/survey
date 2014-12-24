@@ -165,6 +165,7 @@ class Event
     {
         $this->startDate = $this->endDate = $this->expiresAt = new \Datetime();
         $this->registations = new ArrayCollection();
+        $this->startDate = $this->endDate = new \Datetime();
     }
 
     /**
