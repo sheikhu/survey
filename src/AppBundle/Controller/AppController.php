@@ -5,10 +5,16 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Event;
 use AppBundle\Form\EventType;
 
+
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class AppController extends Controller
 {
+    /**
+     * @Security(expression="has_role('ADMIN')")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function indexAction()
     {
 

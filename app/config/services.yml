@@ -4,7 +4,4 @@ parameters:
 #    parameter_name: value
 
 services:
-    acme.twig.acme_extension:
-        class: AppBundle\Twig\Extension\AppExtension
-        tags:
-            - { name: twig.extension }
+    #
