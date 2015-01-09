@@ -54,7 +54,7 @@ doctrine:
         dbname:   "%database_name%"
         user:     "%database_user%"
         password: "%database_password%"
-        path:     "%kernel.root_dir%/../db/db.db3"
+        # path:     "%kernel.root_dir%/../db/db.db3"
         charset:  UTF8
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml
@@ -79,3 +79,11 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: UserBundle\Entity\User
+
+endroid_qr_code:
+    size: 100
+    padding: 10
+    extension: gif
+    error_correction_level: high
+    foreground_color: { r: 255, g: 0, b: 0, a: 1 }
+    background_color: { r: 55, g: 0, b: 255, a: 1 }

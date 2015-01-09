@@ -1,0 +1,12 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% form_theme form _self %}
+
+{% block _fos_user_registration_form_widget %}
+    {% for child in form %}
+        {{ form_row(child) }}
+    {% endfor %}
+{% endblock %}
+
+{% block fos_user_content %}
+{% include "FOSUserBundle:Registration:register_content.html.twig" %}
+{% endblock fos_user_content %}

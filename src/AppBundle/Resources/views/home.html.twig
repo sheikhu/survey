@@ -2,8 +2,10 @@
 
 {% block body %}
 
+    {% set a =  "Hello" %}
+
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
+        <div class="col-lg-8">
             {{ form_start(form) }}
 
             {{ form_widget(form) }}
@@ -12,6 +14,10 @@
                 <input class="btn btn-success" type="submit"/>
             </div>
             {{ form_end(form, {'render_rest': false}) }}
+        </div>
+
+        <div class="col-lg-2">
+            <img src="{{ qrcode_url(app.user.username | default('John'), extension='png', foreground_color= { r: 0, g: 136, b: 204, a: 1 }) }}" />
         </div>
     </div>
 

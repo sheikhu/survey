@@ -13,5 +13,10 @@ class DefaultController extends Controller
     public function indexAction()
     {
 
+
+        $event = new Event();
+
+        $form = $this->createForm(new EventType(), $event);
+
     }
 }
