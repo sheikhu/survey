@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 class User extends BaseUser
 {
     /**
-     * @var integer
+     * @var string
      *
      * @ORM\Column(name="id", type="string")
      * @ORM\Id
@@ -29,7 +29,7 @@ class User extends BaseUser
     /**
      * Get id
      *
-     * @return integer 
+     * @return string
      */
     public function getId()
     {
